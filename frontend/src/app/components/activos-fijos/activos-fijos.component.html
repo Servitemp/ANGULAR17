@@ -1,0 +1,97 @@
+<body>
+    <div class="btn- fixed-bottom fixed-right" style="margin-left: 1%; margin-bottom: 10px;">
+        <button type="button" class="btn btn-primary rounded-circle dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-bars"></i></button>
+        <div class="dropdown-menu">
+            <a class="btn btn-success rounded-circle m-1" (click)="openModel()"><i class="fas fa-plus"></i></a>
+            <a class="btn btn-warning rounded-circle m-1" ng-click="modalInforme()"><i class="fas fa-chart-bar"></i></a>
+            <a class="btn btn-secondary rounded-circle m-1" data-toggle="modal" data-target="#modalVer"><i class="fas fa-eye"></i></a>
+        </div>          
+    </div>
+    
+    <div class="container-fluid">
+        <br>
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-12 col-md-2">
+              <input type="text" class="form-control" ng-model="search" placeholder="Buscar palabra...">
+            </div>
+            <div class="col-12 col-md-2 text-center">
+                <select class="form-control" name="empresa" id="empresa_filtro">
+                  <option value="0">EMPRESAS (Todas)</option>
+                </select>
+            </div> 
+            <div class="col-12 col-md-2 text-center">
+                <select class="form-control" name="tipo" id="tipo_filtro">
+                  <option value="0">TIPO (Todos)</option>
+                </select>
+            </div>  
+            <div class="col-12 col-md-2 text-center">
+                <select class="form-control" name="estado" id="estado_filtro">
+                  <option value="0">ESTADO (Todos)</option>
+                </select>
+            </div> 
+            <div class="col-12 col-md-1 text-center">
+                <button class="btn btn-primary rounded-circle"><i class="fas fa-search"></i></button>
+            </div>                   
+            <div class="col-1"></div>         
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-10">
+              <table class="table table-bordered " id="tablaListado" ts-wrapper ts-no-data-text="No se encontraron datos">
+                <thead class="bg-success text-white">
+                  <tr>
+                    <th>ID</th>
+                    <th>Codigo</th>
+                    <th>Nombre</th>
+                    <th>Empresa</th>
+                    <th>Tipo</th>
+                    <th>Estado</th>
+                    <th>Asignado</th>
+                    <th>Fecha compra</th>
+                    <th>Fecha Ingreso</th>
+                    <th>Valor</th>
+                    <th>Marca</th>
+                    <th>Detalles</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @for (activo of activosData; track $index) {
+                  <tr>
+                    <td ><small>{{activo.id}}</small></td>
+                    <td><small>{{activo.cod_int}}</small></td>
+                    <td><small>{{activo.nombre_activo}}</small></td>
+                    <td><small>{{activo.empresa}}</small></td>
+                    <td><small>{{activo.nombre_tipo}}</small></td>
+                    <td><small>{{activo.nombre_estado}}</small></td>
+                    <td><small>{{activo.asignado}}</small></td>
+                    <td><small>{{activo.fecha_compra}}</small></td>
+                    <td><small>{{activo.fecha_ingreso}}</small></td>
+                    <td><small>{{activo.valor}}</small></td>
+                    <td><small>{{activo.marca}}</small></td>
+                    <td><small>{{activo.detalles}}</small></td>
+                    <td>
+                        <a href="#modalDetalles" style="color: blue;"><i class="fas fa-eye"></i></a>
+                      </td>
+                      <td>
+                        <a href="#modalComment" style="color: green;"><i class="fas fa-comment"></i></a>
+                      </td>
+                      <td>
+                        <a href="#modalComment" style="color: red;"><i class="fas fa-trash"></i></a>
+                      </td>
+                  </tr>
+                }
+                </tbody>
+              </table>
+            </div>
+            <div class="col-1"></div>
+            <div class="col-1"></div>
+          </div>
+    </div>
+</body>
+
+<app-formulario-crear *ngIf="isModelOpen" (cerrarFormulario)="closeModel()"></app-formulario-crear>

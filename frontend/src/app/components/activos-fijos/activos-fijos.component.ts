@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { ActivosService } from '../../services/activos.service';
 import { CommonModule } from '@angular/common';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { FormularioCrearComponent } from '../formulario-crear/formulario-crear.component';
 
 @Component({
@@ -9,16 +10,23 @@ import { FormularioCrearComponent } from '../formulario-crear/formulario-crear.c
   imports: [CommonModule, FormularioCrearComponent],
   templateUrl: './activos-fijos.component.html',
   styleUrl: './activos-fijos.component.css'
-  
+
 })
 export class ActivosFijosComponent implements OnInit {
-  isModelOpen = false;
+  modalRef?: BsModalRef;
   activosData: any[] = [];
 
-  constructor(private activosService: ActivosService) {}
+  constructor(
+    private activosService: ActivosService,
+    private modalService: BsModalService
+    ) {}
 
   ngOnInit(): void {
     this.obtenerActivos();
+  }
+
+  openModal(template: TemplateRef<void>) {
+    this.modalRef = this.modalService.show(template);
   }
 
   obtenerActivos(): void {
@@ -32,12 +40,12 @@ export class ActivosFijosComponent implements OnInit {
     );
   }
 
-  openModel() {
-    this.isModelOpen = true;
-  }
+  // openModel() {
+  //   this.isModelOpen = true;
+  // }
 
-  closeModel() {
-    this.isModelOpen = false;
-    this.obtenerActivos();
-  }
+  // closeModel() {
+  //   this.isModelOpen = false;
+  //   this.obtenerActivos();
+  // }
 }

@@ -1,34 +1,14 @@
-<h5 class="mb-5 text-lg font-bold tracking-tight text-gray-900 dark:text-white ">Employee Details</h5>
-<form class="w-full"  novalidate>
-  <div class="mb-5">
-    <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-    <input type="text" id="name" class="form-control" placeholder="Name">
-    <div class="form-error">Name is required</div>
-  </div>
-  <div class="mb-5">
-    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email Address</label>
-    <input type="email" id="email" class="form-control" placeholder="Email Address">
-    <div class="form-error">Email is required</div>
-  </div>
-  <div class="mb-5">
-    <label for="mobile" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Mobile</label>
-    <input type="text" id="mobile" class="form-control" placeholder="Mobile">
-    <div class="form-error">Mobile is required</div>
-  </div>
-  <div class="mb-5">
-    <label for="dob" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Date of Birth</label>
-    <input type="date" id="dob" class="form-control" placeholder="" >
+<div class="modal-header">
+  <h5 class="modal-title">Mi modal</h5>
+  <button type="button" class="close" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
 
-    <div class="form-error">Date of Birth is required</div>
-  </div>
-  <div class="mb-5">
-    <label for="doj" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Date of Joining</label>
-    <input type="date" id="doj" class="form-control" placeholder="" >
+<div class="modal-body">
+  <p>Este es el contenido del modal.</p>
+</div>
 
-    <div class="form-error">Date of Joining is required</div>
-  </div>
-  <button type="submit"
-    class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg w-full sm:w-auto px-5 py-2.5 text-center">Submit</button>
-  <button type="button"
-    class="text-white  ms-2 bg-gray-700 hover:bg-gray-800 font-medium rounded-lg w-full sm:w-auto px-5 py-2.5 text-center">Cancel</button>
-</form>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary">Cerrar</button>
+</div>

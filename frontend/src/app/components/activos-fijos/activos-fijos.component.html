@@ -2,24 +2,11 @@
     <div class="btn- fixed-bottom fixed-right" style="margin-left: 1%; margin-bottom: 10px;">
         <button type="button" class="btn btn-primary rounded-circle dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-bars"></i></button>
         <div class="dropdown-menu">
-            <a class="btn btn-success rounded-circle m-1" (click)="openModal(template)"><i class="fas fa-plus"></i></a>
+            <a class="btn btn-success rounded-circle m-1" (click)="abrirModal()"><i class="fas fa-plus"></i></a>
             <a class="btn btn-warning rounded-circle m-1" ng-click="modalInforme()"><i class="fas fa-chart-bar"></i></a>
             <a class="btn btn-secondary rounded-circle m-1" data-toggle="modal" data-target="#modalVer"><i class="fas fa-eye"></i></a>
         </div>
     </div>
-
-    <ng-template #template>
-      <div class="modal-header">
-        <h4 class="modal-title pull-left">Modal</h4>
-        <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
-          <span aria-hidden="true" class="visually-hidden">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        This is a modal.
-      </div>
-    </ng-template>
-
     <div class="container-fluid">
         <br>
         <div class="row">

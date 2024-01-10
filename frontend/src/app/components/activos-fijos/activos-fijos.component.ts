@@ -1,7 +1,7 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivosService } from '../../services/activos.service';
 import { CommonModule } from '@angular/common';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { MatDialog } from '@angular/material/dialog';
 import { FormularioCrearComponent } from '../formulario-crear/formulario-crear.component';
 
 @Component({
@@ -13,21 +13,21 @@ import { FormularioCrearComponent } from '../formulario-crear/formulario-crear.c
 
 })
 export class ActivosFijosComponent implements OnInit {
-  modalRef?: BsModalRef;
   activosData: any[] = [];
 
   constructor(
     private activosService: ActivosService,
-    private modalService: BsModalService
+    private dialog: MatDialog
     ) {}
 
   ngOnInit(): void {
     this.obtenerActivos();
   }
 
-  openModal(template: TemplateRef<void>) {
-    this.modalRef = this.modalService.show(template);
-  }
+  // abrirModal() {
+  //   this.dialog.open(FormularioCrearComponent);
+    
+  // }
 
   obtenerActivos(): void {
     this.activosService.obtenerTodosActivos().subscribe(
@@ -39,6 +39,23 @@ export class ActivosFijosComponent implements OnInit {
       }
     );
   }
+
+  abrirModal() {
+    this.dialog.open(FormularioCrearComponent, {
+      width: 'auto',
+      height: 'auto',
+      position: { top: '-50%', left: '10%' }, // Centrar en la pantalla
+    });
+  }
+
+    // abrirModal() {
+  //  this.dialog.open(FormularioCrearComponent, {
+  //     width: 'auto',
+  //     height: 'auto',
+  //     position: { top: '1%', left: '25%' },
+  //     autoFocus: false, // Para desactivar el enfoque automático en el primer elemento del diálogo
+  //   });
+  // }
 
   // openModel() {
   //   this.isModelOpen = true;

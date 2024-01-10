@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatDialog } from '@angular/material/dialog';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -9,10 +10,10 @@ import { RouterModule } from '@angular/router';
   templateUrl: './formulario-crear.component.html',
   styleUrl: './formulario-crear.component.css'
 })
-export class FormularioCrearComponent {
-  isModelOpen = true;
+export class FormularioCrearComponent implements OnInit {
 
-  closeModel() {
-    this.isModelOpen = false;
-  }
+  constructor(private dialog: MatDialog) {}
+
+  ngOnInit() {}
+
 }
